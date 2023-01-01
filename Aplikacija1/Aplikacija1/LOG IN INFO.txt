@@ -1,0 +1,5 @@
+Podaci za prijavu:
+IME - PREZIME - KORISNICKO IME - PASSWORD
+
+Nejra - Muslić - nejramuslic - predavac1
+Filip - Rakić - filiprakic - predavac2

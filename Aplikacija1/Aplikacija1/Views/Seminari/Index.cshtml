@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Aplikacija1.Models.Seminar>
+
+@{
+    ViewBag.Title = "Seminari";
+}
+
+<h2>Seminari</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Seminari", FormMethod.Get))
+    {
+        @Html.TextBox("pretraga")<input type="submit" value="Pretraži" />
+    }
+</p>
+
+<p>
+    @Html.ActionLink("Novi seminar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Popunjen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Popunjen)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.SeminarID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.SeminarID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.SeminarID })
+        </td>
+    </tr>
+}
+
+</table>

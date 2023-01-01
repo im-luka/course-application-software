@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Aplikacija1.Models.Predbiljezba>
+
+@{
+    ViewBag.Title = "Predbilježbe";
+}
+
+<h2>Predbilježbe</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Predbiljezbe", FormMethod.Get))
+    {
+        @Html.TextBox("pretraga")<input type="submit" value="Pretraži" />
+    }
+</p>
+
+<p>
+    @Html.ActionLink("Nova predbilježba", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Seminar.Naziv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seminar.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Uredi", "Edit", new { id=item.PredbiljezbaID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.PredbiljezbaID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.PredbiljezbaID })
+        </td>
+    </tr>
+}
+
+</table>
